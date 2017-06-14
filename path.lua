@@ -2,17 +2,17 @@ local P = {}
 
 
 
-local constants = require "constant"
+local C = require "constant"
 
 
 
 P.path={}
 P.ypath={}
-P.xpathD={constants.D,constants.D}
-P.xpathA={constants.A,constants.A}
-P.zpathO={constants.Q,constantsQ,constants.Q,constants.S}  --path used for odd Z transitions or even Z transitions
-P.zpathE={constants.Q,constants.Q,constants.S}
-P.zpathL={constants.Q,constants.S}  --corner case in odd Z transitions
+P.xpathD={C.D,C.D}
+P.xpathA={C.A,C.A}
+P.zpathO={C.Q,C.Q,C.Q,C.S}  --path used for odd Z transitions or even Z transitions
+P.zpathE={C.Q,C.Q,C.S}
+P.zpathL={C.Q,C.S}  --corner case in odd Z transitions
 
 
 
@@ -73,7 +73,7 @@ end
 
 
  function P.init(lengthOfStraightLine)  --initiliaze y-axis path and add first step
- P.path={constants.W}    --counting first step
+ P.path={C.W}    --counting first step
  P.prepareStraightLinePath(lengthOfStraightLine)
  end
 

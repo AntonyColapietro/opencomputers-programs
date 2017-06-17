@@ -2,7 +2,7 @@ local P = {}
 
 
 
-local C = require "constant"
+local C = require ("constant")
 
 
 

@@ -45,6 +45,8 @@ end
 
 
 function P.prepareStraightLinePath(straightLineLimit) --ypath (excluded first step, change of column right/left (x) and change of level (S key count as a W fo walker.lua) (z))
+  
+  P.ypath={}
 
   for j = 2,straightLineLimit do
     P.writeStep(P.ypath,C.W,C.FIRST)

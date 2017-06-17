@@ -52,8 +52,9 @@ if isDownAirBlock and isUpAirBlock  then
     robot.select(1)
 	if robot.placeDown() then
 	      robot.select(2)
-	      if walker.move(C.E) and robot.placeDown() and robot.select(3) then
-				 
+	      if walker.move(C.E) then
+		   if robot.placeDown() then
+		       if robot.select(3)==3 then
      			  walker.move(C.S)
 				  walker.turnAround() 
 				  robot.place()
@@ -67,6 +68,8 @@ if isDownAirBlock and isUpAirBlock  then
 				  robot.swingDown()
 				  robot.select(3)
 				  robot.swingUp()
+				end
+			end				  
 		   end
 	end
 	

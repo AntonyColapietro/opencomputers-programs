@@ -1,8 +1,13 @@
-local C = require "constant"
+local W={}
+
+local C = require("constant")
 
 local robot = require("robot") 
 
 
+function W.turnAround()
+return robot.turnAround()
+end
 
 function isPassed(direction)
    if direction==C.W then
@@ -42,7 +47,7 @@ function check(direction)
    end
 end
 
-function move(direction)
+function W.move(direction)
    local passed=isPassed(direction)
    local limitofchecks=0
         while not (passed) and limitofchecks<20 do
@@ -61,9 +66,11 @@ function move(direction)
          -- maybe move(direction) can return a boolean to get success/error of the movement
 
         else
-       -- need to think about this case
+        return true
        end
-end                     
+end                 
+
+    
            
-                   
+return W      
 

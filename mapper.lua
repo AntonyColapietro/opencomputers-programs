@@ -1,3 +1,6 @@
+local M = {}
+
+
 local P = require ("path")
 
 
@@ -18,7 +21,7 @@ P.addStraightLineToPathWithOptionalCornerToPlan(-1,false)
 end
 
 
-function writePath(x,y,z)
+function M.writePath(x,y,z)
 
 --initiliaze parts of the path
 
@@ -29,6 +32,8 @@ local z1 = z+2     --count level over the turtle at home position (if turtle sta
 P.init(y1)
 
 writeCube(x1,y1,z1)
+
+return P.path
 
 end
 
@@ -62,3 +67,6 @@ end
 end
 
 end
+
+
+return M

@@ -8,18 +8,18 @@ local C = require ("constant")
 
 P.path={}
 P.ypath={}
-P.xpathD={C.D,C.D}
-P.xpathA={C.A,C.A}
-P.zpathO={C.Q,C.Q,C.Q,C.S}  --path used for odd Z transitions or even Z transitions
-P.zpathE={C.Q,C.Q,C.S}
-P.zpathL={C.Q,C.S}  --corner case in odd Z transitions
+P.xpathD={{C.D,2}}
+P.xpathA={{C.A,2}}
+P.zpathO={{C.Q,3},{C.S,1}}  --path used for odd Z transitions or even Z transitions
+P.zpathE={{C.Q,2},{C.S,1}}
+P.zpathL={{C.Q,1},{C.S,1}}  --corner case in odd Z transitions
 
 
 
 
 
 function P.writeStep(whichpath,direction,position)
-  table.insert(whichpath,position,direction)
+  whichpath[position]=direction
 end
 
 
@@ -46,11 +46,8 @@ end
 
 function P.prepareStraightLinePath(straightLineLimit) --ypath (excluded first step, change of column right/left (x) and change of level (S key count as a W fo walker.lua) (z))
   
-  P.ypath={}
+  P.ypath= {{C.W,straightLineLimit-1}}
 
-  for j = 2,straightLineLimit do
-    P.writeStep(P.ypath,C.W,C.FIRST)
-  end
 
 end
 
@@ -75,7 +72,7 @@ end
 
 
 function P.init(lengthOfStraightLine)  --initiliaze y-axis path and add first step
-  P.path={C.W}    --counting first step
+  P.path={{C.W,1}}    --counting first step
   P.prepareStraightLinePath(lengthOfStraightLine)
 end
 

@@ -62,9 +62,7 @@ function W.move(direction)
   end
   if not (passed) then
     print("Error:Obstacle found on the way")
-    -- goHome() TODO: implement this concept
-    -- maybe move(direction) can return a boolean to get success/error of the movement
-
+    return false
   else
     return true
   end
